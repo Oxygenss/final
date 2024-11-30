@@ -1,21 +1,15 @@
 name: golang-pipeline
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-go@v4
-
-    - name: Build
-      run: go build -v ./...
-
-  test:
+ test:
     needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-go@v4
+
+    - name: Run linters
+      run: go vet ./...
 
     - name: Test
       run: go test -v ./...
