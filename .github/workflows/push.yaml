@@ -1,7 +1,7 @@
 name: golang-pipeline
 on: push
 jobs:
- test:
+  test:
     needs: build
     runs-on: ubuntu-latest
     steps:
