@@ -2,7 +2,6 @@ name: golang-pipeline
 on: push
 jobs:
   test:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
